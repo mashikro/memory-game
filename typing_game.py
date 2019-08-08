@@ -23,39 +23,41 @@ def intro():
     print("*************")
 
     #clear intro
-    timer = 5
-
-    while timer > 0:
-        time.sleep(1)
-        timer = timer - 1
-        
+    time.sleep(5)
     print(chr(27) + "[2J")
-    
-        
+         
 intro()
 
-number_life = 5
+
+#number_life = 5
+#while number_life > 0:
+    
 
 def level_1():
-#displaying random word from word bank for 4 seconds and then clearing terminal 
-    import random 
+    number_life = 5
+    #displaying random word from word bank
     print(random.choice(level_1_words))
-    import time
-    timer = 4
-    while timer > 0:
-        time.sleep(1)
-        timer = timer - 1
+    #displays for 4 seconds
+    time.sleep(4)
+    #clearing terminal
     print(chr(27) + "[2J")
-#getting user input
+    #getting user input
+    time.time()
+    x = time.time()
     level_1_input = input("Enter what you saw: >")
-#evaluating user input
+    #calculate elapsed time
+    y = time.time()
+    elapsed_time = y - x 
+    #evaluating user input
     if level_1_input == random.choice(level_1_words):
-        print("You entered:", level_1_input)
+        if elapsed_time <= 5:
+            print("You entered:", level_1_input)
         #move on to the next level
-    #else: 
-#if user messed up -- subtracting from their lives number_life = number_life -1
-#if user has enough lives -- move on to the next level
-
-
+    else:
+        print("Try again")
+        number_life = number_life - 1
+            
+    #if user messed up -- subtracting from their lives number_life = number_life -1
+    #if user has enough lives -- move on to the next level
 
 level_1()
