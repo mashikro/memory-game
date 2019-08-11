@@ -1,9 +1,16 @@
 import time
 import random 
-
-level_1_words = ["jazz", "fury", "keys", "bird", "cute", "pens", "blue"]
-level_2_words = ["bliss", "brown", "corgi", "fazed", "grape"]
-level_3_words = ["biotin", "bodega", "cherry"]
+#10 levels thus 10 word banks. Note: each level gets longer by 1 character to make it challenging. 
+level_1_words = ["jazz", "fury", "keys", "bird", "cute", "pens", "blue", "leaf", "", ""] #4
+level_2_words = ["bliss", "brown", "corgi", "fazed", "grape", "green", "water", "couch", "glass", ""] #5
+level_3_words = ["biotin", "bodega", "cherry", "deceit", "glazed", "flower", "pillow", "", "", "" ]  #6
+level_4_words = 
+level_5_words = 
+level_6_words = 
+level_7_words = 
+level_8_words = 
+level_9_words = 
+level_10_words = 
 
 all_level_words = [level_1_words, level_2_words, level_3_words]
 
@@ -48,17 +55,15 @@ def test_word(chosen_word):
     return (test_input, elapsed_time)
    
 
-## returns True if they succeeded, otherwise false when game over.
-
-
-def level_1():
-    """level 1: Uses helper functions to determine if player can move on to next level"""
+def play_level(level_words):
+    """Uses helper functions to determine if player can move on to next level. 
+    Determines how many lives a player has left"""
     number_life = 5
 
     while number_life > 0:
         print("Lives remaining: ", number_life)
         print("Remmember this word: ")
-        chosen_word = random.choice(all_level_words)
+        chosen_word = random.choice(level_words) #HERE
         result = test_word(chosen_word)
         test_input = result[0]
         elapsed_time = result[1]
@@ -75,16 +80,15 @@ def level_1():
             print("Try again")
 
         else:
+            print("Game over!")
             return False
 
 def play_game():
-    for words in all_level_words:
-        for word in words:
-            print(level_1())
+    for level_words in all_level_words:
+        play_level(level_words)
 
 def main():  
-    intro()
-    #level_1()  
+    intro()  
     play_game()    
 
 
