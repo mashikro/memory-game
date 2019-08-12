@@ -1,7 +1,7 @@
 import time
 import random 
 
-#10 levels thus 10 word banks. Note: each level gets longer by 1 character to make each ascending level more challenging. 
+#11 levels thus 11 word banks. Note: each level gets longer by 1 character to make each ascending level more challenging. 
 level_1_words = ["jazz", "fury", "keys", "bird", "cute", "pens", "blue", "leaf", "cake", "lady"] #4
 level_2_words = ["bliss", "brown", "corgi", "fazed", "grape", "green", "water", "couch", "glass", "laugh"] #5
 level_3_words = ["biotin", "bodega", "cherry", "deceit", "glazed", "flower", "pillow", "hamlet", "cheese", "kimono" ]  #6
@@ -12,8 +12,11 @@ level_7_words = ["watermelon", "creativity", "revolution", "rainforest", "adrena
 level_8_words = ["serendipity", "marshmallow", "imagination", "mathematics", "pomegranate", "promiscuous", "cytokinesis", "cauliflower", "chloroplast", "antioxidant"] #11
 level_9_words = ["trigonometry", "biodiversity", "hypothalamus", "supernatural", "aerodynamics", "immunization", "biochemistry", "carbohydrate", "tuberculosis", "cheeseburger"] #12
 level_10_words = ["schizophrenia", "mathematician", "mitochondrion", "parallelogram", "biotechnology", "metamorphosis", "hallucinogens", "hyperglycemia", "microorganism", "phytoplankton"] #13
+level_11_words = ["photosynthesis", "chromatography", "cardiovascular", "nanotechnology", "simplification", "flabbergasting", "automatization", "overprotective", "philanthropist", "hallucinogenic"] #14
 
-all_level_words = [level_1_words, level_2_words, level_3_words, level_4_words, level_5_words, level_6_words, level_7_words, level_8_words, level_9_words, level_10_words]
+
+all_level_words = [level_1_words, level_2_words, level_3_words, level_4_words, level_5_words, level_6_words, level_7_words, level_8_words, level_9_words, level_10_words, level_11_words]
+level_names = ["Level 1","Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7", "Level 8", "Level 9", "Level 10", "Level 11"]
 
 def clear_terminal():
     """clears terminal"""
@@ -21,29 +24,35 @@ def clear_terminal():
 
 def intro():
     """greets and gives instructions"""
+    print()
     print("Hi there! Welcome to my typing/memory game.")
     print("🧠 🧠 🧠 🧠 🧠 🧠 🧠 🧠 🧠 🧠")
     print("Its purpose is to help you work on your muscle memory and improve your typing accuracy and speed 🤓.")
-    print("*************")
-    print("Instructions: ")
     print()
+    print("Instructions:")
+    print("*************")
     print("The game will flash you a word for --4 seconds-- and then it will disappear.")
     print("Your task is to type the word you saw as fast and as accurately as possible.") 
+    print()
+    print("🥇 🥇 How to win🥇 🥇")
     print("*************")
     print("If you meet the (1)typing speed & (2)accuracy criteria you will move on to the next level.")
     print("Typing speed: 5 seconds")
     print("Typing accuracy: all characters must match displayed word")
+    print()
     print("*************")
     print("If you don't meet the requirements....👿 👿 👿")
     print("You are given 5 lives for the entire game. If you loose all 5 lives....GAME OVER!!")
     print()
+    print("                 *************************************** ")
 
     #clear intro
-    time.sleep(10)
+    input("Press Enter to continue ▶️ ...")
     clear_terminal()
 
 def test_word(chosen_word):
     """Shows word, gets input from user. Calculates elapsed time."""
+
     print(chosen_word)
     #displays for 4 seconds
     time.sleep(2)
@@ -65,10 +74,12 @@ def play_level(level_words):
     
     while number_life > 0:
         print()
-        print("Lives remaining: ", number_life)
-        print("Remmember this word: ")
-        print()
-        chosen_word = random.choice(level_words) 
+        for name in level_names:
+            print(name)
+            print("Remmember this word: ")
+            print()
+            chosen_word = random.choice(level_words) 
+            
         result = test_word(chosen_word)
         test_input = result[0]
         elapsed_time = result[1]
@@ -79,21 +90,24 @@ def play_level(level_words):
             print("***** User Stats *****")
             print("Typing speed:", elapsed_time, "seconds")
             print("Typing accuracy: Perfect match -->", test_input)
-            time.sleep(4)
+            print("Lives remaining: ", number_life)
+            print("=========================================")
+            input("Press Enter to continue to the next level ▶️ ...")
             return True
         else:
-            number_life = number_life - 1
-            print("Try again")
+            number_life = number_life - 1   
+            print()
+            print("👎 Try again👎")
+            return False
 
-    return False
 
 def play_game():
     for level_words in all_level_words:
         play_level(level_words)
     if number_life > 0:
-        print("YOU WIN!")
+        print("🥇 🥇YOU WIN! 🥇 🥇")
     else:
-        print("Game over!")
+        print("👿 Game over! 👿")
 
 
 def main():  
