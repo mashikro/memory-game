@@ -55,11 +55,12 @@ def test_word(chosen_word):
 
     print(chosen_word)
     #displays for 4 seconds
-    time.sleep(2)
+    time.sleep(4)
     clear_terminal()
     #getting user input
     x = time.time()
     test_input = input("Enter what you saw: >")
+    test_input = test_input.lower()
     #calculate elapsed time
     y = time.time()
     elapsed_time = y - x
@@ -74,12 +75,9 @@ def play_level(level_words):
     
     while number_life > 0:
         print()
-        for name in level_names:
-            print(name)
-            print("Remmember this word: ")
-            print()
-            chosen_word = random.choice(level_words) 
-            
+        print("Remmember this word: ")
+        print()
+        chosen_word = random.choice(level_words) 
         result = test_word(chosen_word)
         test_input = result[0]
         elapsed_time = result[1]
@@ -93,13 +91,15 @@ def play_level(level_words):
             print("Lives remaining: ", number_life)
             print("=========================================")
             input("Press Enter to continue to the next level ▶️ ...")
+            clear_terminal()
             return True
+           
         else:
-            number_life = number_life - 1   
+            number_life = number_life - 1 
             print()
-            print("👎 Try again👎")
-            return False
-
+            if number_life > 0:
+                print("👎 Try again👎")
+    return False
 
 def play_game():
     for level_words in all_level_words:
@@ -108,8 +108,7 @@ def play_game():
         print("🥇 🥇YOU WIN! 🥇 🥇")
     else:
         print("👿 Game over! 👿")
-
-
+    
 def main():  
     intro()  
     play_game()    
