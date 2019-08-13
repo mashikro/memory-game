@@ -13,9 +13,10 @@ level_8_words = ["serendipity", "marshmallow", "imagination", "mathematics", "po
 level_9_words = ["trigonometry", "biodiversity", "hypothalamus", "supernatural", "aerodynamics", "immunization", "biochemistry", "carbohydrate", "tuberculosis", "cheeseburger"] #12
 level_10_words = ["schizophrenia", "mathematician", "mitochondrion", "parallelogram", "biotechnology", "metamorphosis", "hallucinogens", "hyperglycemia", "microorganism", "phytoplankton"] #13
 level_11_words = ["photosynthesis", "chromatography", "cardiovascular", "nanotechnology", "simplification", "flabbergasting", "automatization", "overprotective", "philanthropist", "hallucinogenic"] #14
+level_12_words = ["procrastination", "confidentiality", "crystallization", "experimentation", "hospitalization", "hemochromatosis", "decarboxylation", "neurobiological", "romanticization", "palaeontologist"] #15
 
 
-all_level_words = [level_1_words, level_2_words, level_3_words, level_4_words, level_5_words, level_6_words, level_7_words, level_8_words, level_9_words, level_10_words, level_11_words]
+all_level_words = [level_1_words, level_2_words, level_3_words, level_4_words, level_5_words, level_6_words, level_7_words, level_8_words, level_9_words, level_10_words, level_11_words, level_12_words]
 
 def clear_terminal():
     """clears terminal"""
@@ -63,14 +64,14 @@ def test_word(chosen_word):
     #calculate elapsed time
     y = time.time()
     elapsed_time = y - x
-    return (test_input, elapsed_time)
+    return (test_input, elapsed_time) #this is a tuple
 
 number_life = 5
 
 def play_level(level_words):
     """Uses helper functions to determine if player can move on to next level. 
     Determines how many lives a player has left"""
-    global number_life 
+    global number_life #this is new in python
     
     while number_life > 0:
         print()
@@ -101,7 +102,8 @@ def play_level(level_words):
     return False
 
 def play_game():
-    for level_words in all_level_words:
+    for idx, level_words in enumerate(all_level_words):
+        print("Level", [idx+1])
         play_level(level_words)
     if number_life > 0:
         print("🥇 🥇YOU WIN! 🥇 🥇")
