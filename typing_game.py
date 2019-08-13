@@ -16,7 +16,6 @@ level_11_words = ["photosynthesis", "chromatography", "cardiovascular", "nanotec
 
 
 all_level_words = [level_1_words, level_2_words, level_3_words, level_4_words, level_5_words, level_6_words, level_7_words, level_8_words, level_9_words, level_10_words, level_11_words]
-level_names = ["Level 1","Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7", "Level 8", "Level 9", "Level 10", "Level 11"]
 
 def clear_terminal():
     """clears terminal"""
