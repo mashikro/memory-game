@@ -1,7 +1,7 @@
 import time
 import random 
 
-#11 levels thus 11 word banks. Note: each level gets longer by 1 character to make each ascending level more challenging. 
+#12 levels thus 12 word banks. Note: each level gets longer by 1 character to make each ascending level more challenging. 
 level_1_words = ["jazz", "fury", "keys", "bird", "cute", "pens", "blue", "leaf", "cake", "lady"] #4
 level_2_words = ["bliss", "brown", "corgi", "fazed", "grape", "green", "water", "couch", "glass", "laugh"] #5
 level_3_words = ["biotin", "bodega", "cherry", "deceit", "glazed", "flower", "pillow", "hamlet", "cheese", "kimono" ]  #6
@@ -23,7 +23,7 @@ def clear_terminal():
     print(chr(27) + "[2J")
 
 def intro():
-    """greets and gives instructions"""
+    """greets user and gives instructions"""
     print()
     print("Hi there! Welcome to my typing/memory game.")
     print("🧠 🧠 🧠 🧠 🧠 🧠 🧠 🧠 🧠 🧠")
@@ -31,7 +31,7 @@ def intro():
     print()
     print("Instructions:")
     print("*************")
-    print("The game will flash you a word for --4 seconds-- and then it will disappear.")
+    print("The game will flash you a word for --3 seconds-- and then it will disappear.")
     print("Your task is to type the word you saw as fast and as accurately as possible.") 
     print()
     print("🥇 🥇 How to win🥇 🥇")
@@ -51,19 +51,19 @@ def intro():
     clear_terminal()
 
 def test_word(chosen_word):
-    """Shows word, gets input from user. Calculates elapsed time."""
+    """Shows word, gets input from user and calculates elapsed time."""
 
     print(chosen_word)
-    #displays for 4 seconds
-    time.sleep(4)
+    #displays for 3 seconds
+    time.sleep(3)
     clear_terminal()
+    start_time = time.time()
     #getting user input
-    x = time.time()
     test_input = input("Enter what you saw: >")
     test_input = test_input.lower()
+    end_time = time.time()
     #calculate elapsed time
-    y = time.time()
-    elapsed_time = y - x
+    elapsed_time = end_time - start_time
     return (test_input, elapsed_time) #this is a tuple
 
 number_life = 5
@@ -78,9 +78,7 @@ def play_level(level_words):
         print("Remmember this word: ")
         print()
         chosen_word = random.choice(level_words) 
-        result = test_word(chosen_word)
-        test_input = result[0]
-        elapsed_time = result[1]
+        (test_input, elapsed_time) = test_word(chosen_word) #the return of test_word() is a tuple
 
         if test_input == chosen_word and elapsed_time <= 5:
             print("Success 👏")
