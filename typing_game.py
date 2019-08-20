@@ -71,13 +71,14 @@ number_life = 5
 def play_level(level_words):
     """Uses helper functions to determine if player can move on to next level. 
     Determines how many lives a player has left"""
-    global number_life #this is new in python
+    global number_life 
     
     while number_life > 0:
         print()
         print("Remmember this word: ")
         print()
-        chosen_word = random.choice(level_words) 
+        chosen_word = random.choice(level_words)
+        level_words.remove(chosen_word)  #removes printed word from lst to avoid repitition. 
         (test_input, elapsed_time) = test_word(chosen_word) #the return of test_word() is a tuple
 
         if test_input == chosen_word and elapsed_time <= 5:
@@ -91,13 +92,15 @@ def play_level(level_words):
             input("Press Enter to continue to the next level ▶️ ...")
             clear_terminal()
             return True
-           
+
         else:
             number_life = number_life - 1 
             print()
             if number_life > 0:
                 print("👎 Try again👎")
     return False
+
+
 
 def play_game():
     for idx, level_words in enumerate(all_level_words):
