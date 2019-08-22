@@ -53,7 +53,7 @@ def intro():
 def test_word(chosen_word):
     """Shows word, gets input from user and calculates elapsed time."""
 
-    print(chosen_word)
+    print(chosen_word) #this is a shared data between play_level
     #displays for 3 seconds
     time.sleep(3)
     clear_terminal()
@@ -66,18 +66,16 @@ def test_word(chosen_word):
     elapsed_time = end_time - start_time
     return (test_input, elapsed_time) #this is a tuple
 
-number_life = 5
 
-def play_level(level_words):
+def play_level(level_words, number_life):
     """Uses helper functions to determine if player can move on to next level. 
     Determines how many lives a player has left"""
-    global number_life 
-    
+
     while number_life > 0:
         print()
         print("Remmember this word: ")
         print()
-        chosen_word = random.choice(level_words)
+        chosen_word = random.choice(level_words) #chosen_word is initialized in play_level. The data in this var will be shared with test_word()
         level_words.remove(chosen_word)  #removes printed word from lst to avoid repitition. 
         (test_input, elapsed_time) = test_word(chosen_word) #the return of test_word() is a tuple
 
@@ -91,25 +89,29 @@ def play_level(level_words):
             print("=========================================")
             input("Press Enter to continue to the next level ▶️ ...")
             clear_terminal()
-            return True
+            return number_life
 
         else:
-            number_life = number_life - 1 
+            number_life = number_life - 1  #update number_life 
             print()
             if number_life > 0:
                 print("👎 Try again👎")
-    return False
 
-
+    return number_life
 
 def play_game():
+    """calls on helper functions to play all levels. Keeps track of number_life"""
+    
+    number_life = 5 #initialize number _ife here bc call stack hierchy. this data in this var will be shared with play_level()
     for idx, level_words in enumerate(all_level_words):
         print("Level", [idx+1])
-        play_level(level_words)
-    if number_life > 0:
-        print("🥇 🥇YOU WIN! 🥇 🥇")
+        number_life = play_level(level_words, number_life) #takes in initialized number_life and then returns modified number_life. It's both a function arguement and a return
+    current_number_life = number_life
+    if current_number_life > 0:
+        print("🥇 🥇 YOU WIN! 🥇 🥇")
     else:
         print("👿 Game over! 👿")
+
     
 def main():  
     intro()  
