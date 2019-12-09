@@ -51,7 +51,7 @@ def intro():
     clear_terminal()
 
 def test_word(chosen_word):
-    """Shows word, gets input from user and calculates elapsed time."""
+    """Shows word, gets input from user and calculates elapsed time.""" 
 
     print(chosen_word) #this is a shared data between play_level
     #displays for 3 seconds
