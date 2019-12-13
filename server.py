@@ -16,14 +16,17 @@ app.jinja_env.undefined = StrictUndefined #to prevent silent but deadly jinja er
 
 ######################### ROUTES #####################################
 
-
-
+@app.route('/') 
+def index():
+    '''Index. User can read instructions here for the game'''
+    
+    return render_template('index.html') 
 
 
 ####################### RUNNING MY SERVER ###############################
 if __name__ == "__main__":
    
-    app.debug=False # We have to set debug=True here, since it has to be True at the point that we invoke the DebugToolbarExtension
+    app.debug=True # We have to set debug=True here, since it has to be True at the point that we invoke the DebugToolbarExtension
 
     DebugToolbarExtension(app) # Use the DebugToolbar
 
