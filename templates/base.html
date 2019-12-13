@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Memory Typing Game</title>
+
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <link rel="stylesheet"  href="/static/styles.css">
+
+  </head>
+  <body>
+
+    <body style="background-color:#E8F2DA;">
+
+    {% for flash in get_flashed_messages() %}
+      {{ flash }}
+    {% endfor %}
+
+    {% block content %}
+      Put your body here.
+    {% endblock %}
+
+    {% block script %}
+  <!-- Put your javascript script tags here. -->
+     {% endblock %}
+  </body>
+</html>
