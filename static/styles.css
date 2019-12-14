@@ -1,0 +1,9 @@
+.center-div {
+    text-align: center;
+}
+
+body {
+    font-family: 'Inconsolata', monospace;
+    height: 100%;
+    margin: 0;
+}
