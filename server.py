@@ -6,7 +6,8 @@ from flask import Flask, render_template, request, redirect, session, flash, jso
 from flask_debugtoolbar import DebugToolbarExtension
 
 import os
- 
+
+import gen_random_word
 #################### FLASK APP SET-UP ####################################
 app = Flask(__name__)
 
@@ -21,6 +22,19 @@ def index():
     '''Index. User can read instructions here for the game'''
     
     return render_template('index.html') 
+
+
+@app.route('/play.json') 
+def play():
+    '''Get word ready to diplaying'''
+
+    word = gen_random_word.random_word()
+
+    print('loooook here:', word)
+
+    data_dict = {'data': word}
+
+    return jsonify(data_dict)
 
 
 ####################### RUNNING MY SERVER ###############################
