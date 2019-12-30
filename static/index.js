@@ -18,6 +18,8 @@ $(document).ready(() => {
       $.getJSON("/play.json", (data) => {
         //write a func to show word
         console.log('is data coming in', data)
+
+        $('#displayed-word').html(data.word);
       });
 
     });

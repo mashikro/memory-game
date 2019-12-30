@@ -32,7 +32,7 @@ def play():
 
     print('loooook here:', word)
 
-    data_dict = {'data': word}
+    data_dict = {'word': word}
 
     return jsonify(data_dict)
 

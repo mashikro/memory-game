@@ -1,12 +1,33 @@
 {% extends 'base.html' %}
 {% block content %}
 <br>
-<div class='center-div'>
+<div class='center-div' id='play-intructions'>
     <h3>Welcome to Memory Typing Game</h3>
-    <button type="button" class="btn btn-success">Play</button>
-    <br>
-    <br>
-    <button type="button" class="btn btn-success">Intructions</button>
+    <button type="button" class="btn btn-success" id='playButton'>Play</button>
+    <br />
+    <br />
+    <button type="button" class="btn btn-success" id='instructionsButton'>Intructions</button>
+    <br />
+    
+    <div id='instructions'> 
+        <li>The game will flash you a word for --3 seconds-- and then it will disappear.</li>
+        <li> Your task is to type the word you saw as fast and as accurately as possible.</li>
+        <li>If you meet the (1)typing speed & (2)accuracy criteria you will move on to the next level.</li>
+        <li>Typing speed: 5 seconds</li>
+        <li>Typing accuracy: all characters must match displayed word.</li>
+        <li>You are given 5 lives for the entire game. If you loose all 5 lives....GAME OVER!!</li>
+    </div>
 </div>
 
+<section id='displayed-word'>
+    <p>anyting??</p>
+<!-- display chosen random word -->
+</section>
+
+
+
+{% endblock %}
+
+{% block script %}
+<script src="/static/index.js"></script>
 {% endblock %}
