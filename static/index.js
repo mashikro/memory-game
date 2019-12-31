@@ -6,9 +6,12 @@ $(document).ready(() => {
     
     $('#instructions').hide();
     $('#displayed-word').hide();
+    
 
-// when you press play hide instructions
-// show the rest 
+    instrButton.on('click', () => {
+      $('#instructions').show();
+    });
+
 
     playButton.on('click', () => {
       $('#instructions').hide();
@@ -22,10 +25,10 @@ $(document).ready(() => {
         $('#displayed-word').html(data.word);
       });
 
-    });
+        // write a func to make word dissapear using setTimeout()
 
-    instrButton.on('click', () => {
-      $('#instructions').show();
+      setTimeout(() => $('#displayed-word').hide(), 3000);
+
     });
 
     console.log('Is this working????')
