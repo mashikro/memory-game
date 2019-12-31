@@ -6,7 +6,8 @@ $(document).ready(() => {
     
     $('#instructions').hide();
     $('#displayed-word').hide();
-    
+    $('#word-form').hide();
+
 
     instrButton.on('click', () => {
       $('#instructions').show();
@@ -18,6 +19,8 @@ $(document).ready(() => {
       $('#instructionsButton').hide();
       $('#displayed-word').show();
 
+
+
       $.getJSON("/play.json", (data) => {
         //write a func to show word
         console.log('is data coming in', data)
@@ -28,8 +31,11 @@ $(document).ready(() => {
         // write a func to make word dissapear using setTimeout()
 
       setTimeout(() => $('#displayed-word').hide(), 3000);
+      setTimeout(() => $('#word-form').show(), 3500);
 
     });
+
+
 
     console.log('Is this working????')
 });
