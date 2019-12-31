@@ -30,11 +30,17 @@ def play():
 
     word = gen_random_word.random_word()
 
-    print('loooook here:', word)
+    # print('loooook here:', word)
 
     data_dict = {'word': word}
 
     return jsonify(data_dict)
+
+@app.route('/check-user-input', methods=['POST'])
+def check_input():
+    '''Check user's input'''
+
+    user_input = request.form.get('user-input')
 
 
 ####################### RUNNING MY SERVER ###############################
