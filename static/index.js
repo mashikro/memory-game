@@ -2,6 +2,10 @@
 
 let currentWord = null;
 let currentLevel = 0;
+
+function clearTextArea() {
+  $("#textArea").val("");
+}
 //set up
 $(document).ready(() => {
   const playButton = $("#playButton");
@@ -18,9 +22,10 @@ $(document).ready(() => {
   playButton.on("click", () => {
     $("#instructions").hide();
     $("#instructionsButton").hide();
+    $("#playButton").hide(); // <--- this is not working
     getWord();
   });
-  console.log("Is this working????");
+  // console.log("Is this working????");
 });
 
 // func makes ajax request to get word
@@ -31,7 +36,7 @@ function getWord() {
 
   $.getJSON("/play.json", levelData, data => {
     //write a func to show word
-    console.log("is data coming in", data);
+    // console.log("is data coming in", data);
 
     currentWord = data.word;
 
@@ -47,19 +52,24 @@ function getWord() {
 
 //write a func to validate user input
 function validateWord() {
-  console.log("Are we getting here?");
+  // console.log("Are we getting here?");
+  $("#word-form").hide();
   if (document.myForm.userInput.value == currentWord) {
     alert("Correct!");
     currentLevel += 1;
-    // getWord();
   } else {
-    // getWord();
     alert("Incorrect!");
   }
   getWord();
+  clearTextArea();
   return false;
 }
-
+function endGame() {
+  alert("End of Game!");
+  // $("#instructions").hide();
+  $("#instructionsButton").show();
+  $("#playButton").show();
+}
 // t0=user clicks on play
 // t1=data comes back from server, display word
 //
