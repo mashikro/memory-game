@@ -1,7 +1,7 @@
 import random
 
-l1_words = ["jazz", "fury", "keys", "bird", "cute", "pens", "blue", "leaf", "cake", "lady"] #4
-l2_words = ["bliss", "brown", "corgi", "fazed", "grape", "green", "water", "couch", "glass", "laugh"] #5
+level_1 = ["jazz", "fury", "keys", "bird", "cute", "pens", "blue", "leaf", "cake", "lady"] #4
+level_2 = ["bliss", "brown", "corgi", "fazed", "grape", "green", "water", "couch", "glass", "laugh"] #5
 # level_3_words = ["biotin", "bodega", "cherry", "deceit", "glazed", "flower", "pillow", "hamlet", "cheese", "kimono" ]  #6
 # level_4_words = ["awkward", "balcony", "biofuel", "cripple", "duchess", "eyelash", "fireman", "ironman", "jukebox", "lovebug"] #7
 # level_5_words = ["athletic", "bachelor", "collagen", "dedicate", "educated", "electron", "flawless", "haploids", "investor", "mocktail"] #8
@@ -13,12 +13,15 @@ l2_words = ["bliss", "brown", "corgi", "fazed", "grape", "green", "water", "couc
 # level_11_words = ["photosynthesis", "chromatography", "cardiovascular", "nanotechnology", "simplification", "flabbergasting", "automatization", "overprotective", "philanthropist", "hallucinogenic"] #14
 # level_12_words = ["procrastination", "confidentiality", "crystallization", "experimentation", "hospitalization", "hemochromatosis", "decarboxylation", "neurobiological", "romanticization", "palaeontologist"] #15
 
-# all_levels = [l1_words, l2_words]
+all_levels = [level_1, level_2]
 
-def random_word():
+def random_word(level):
     '''Picks a random word from a set and returns it'''
 
-    chosen_word = random.choice(l1_words)
+    lst = all_levels[level]
+
+    chosen_word = random.choice(lst)
+    # l1_words.remove(chosen_word)
 
     return chosen_word
 
