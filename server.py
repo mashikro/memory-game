@@ -28,19 +28,26 @@ def index():
 def play():
     '''Get word ready to diplaying'''
 
-    word = gen_random_word.random_word()
+    level = request.args.get('level')
+    print('FORNT END LEVEL:',level)
+    print(type(level)) #str
 
-    # print('loooook here:', word)
+    # level_ = 'level_'+str(level)
+    # print('CONVERTED LEVEL:',level_)
+
+    word = gen_random_word.random_word(int(level))
+
+    print('loooook here:', word)
 
     data_dict = {'word': word}
 
     return jsonify(data_dict)
 
-@app.route('/check-user-input', methods=['POST'])
-def check_input():
-    '''Check user's input'''
+# @app.route('/check-user-input', methods=['POST'])
+# def check_input():
+#     '''Check user's input'''
 
-    user_input = request.form.get('user-input')
+#     user_input = request.form.get('user-input')
 
 
 ####################### RUNNING MY SERVER ###############################
