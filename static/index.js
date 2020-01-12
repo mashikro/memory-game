@@ -2,6 +2,7 @@
 
 let currentWord = null;
 let currentLevel = 0;
+let wrongGuesses = 0;
 
 function clearTextArea() {
   $("#textArea").val("");
@@ -50,26 +51,41 @@ function getWord() {
   });
 }
 
-//write a func to validate user input
-function validateWord() {
-  // console.log("Are we getting here?");
-  $("#word-form").hide();
-  if (document.myForm.userInput.value == currentWord) {
-    alert("Correct!");
-    currentLevel += 1;
-  } else {
-    alert("Incorrect!");
-  }
-  getWord();
-  clearTextArea();
-  return false;
-}
 function endGame() {
   alert("End of Game!");
   // $("#instructions").hide();
   $("#instructionsButton").show();
   $("#playButton").show();
+  $("#word-form").hide();
+  currentLevel = 0;
+  wrongGuesses = 0;
 }
+
+const checkState = () => {
+  if (currentLevel == 12 || wrongGuesses == 3) {
+    console.log("does this work??");
+    endGame();
+  } else {
+    getWord();
+    clearTextArea();
+  }
+};
+//write a func to validate user input
+function validateWord() {
+  // console.log("Are we getting here?");
+  $("#word-form").hide();
+  if (document.myForm.userInput.value == currentWord) {
+    const displayLevel = +currentLevel + +1;
+    alert("Correct! You passed level: " + displayLevel);
+    currentLevel += 1;
+  } else {
+    alert("Incorrect! Try again");
+    wrongGuesses += 1;
+  }
+  checkState();
+  return false;
+}
+
 // t0=user clicks on play
 // t1=data comes back from server, display word
 //
