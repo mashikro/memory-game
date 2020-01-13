@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <br />
 <div class="center-div" id="play-intructions">
-    <h3>Welcome to Memory Typing Game</h3>
+    <h3>Memory Typing Game</h3>
     <button type="button" class="btn btn-success" id="playButton">Play</button>
     <br />
     <br />
@@ -31,20 +31,26 @@
         </li>
     </div>
 </div>
+<div class="center-section">
+    <section id="displayed-word" class="center-div">
+        <p>anyting??</p>
+        <!-- display chosen random word -->
+    </section>
 
-<section id="displayed-word">
-    <p>anyting??</p>
-    <!-- display chosen random word -->
-</section>
-
-<section id="word-form">
-    <!-- <form action='/check-user-input' method='POST'> -->
-    <form name="myForm" onsubmit="return(validateWord());">
-        <input type="text" name="userInput" autocomplete="off" required />
-        <input type="submit" name="Submit" />
-    </form>
-</section>
-
+    <section id="word-form" class="center-div">
+        <!-- <form action='/check-user-input' method='POST'> -->
+        <form name="myForm" onsubmit="return(validateWord());">
+            <input
+                type="text"
+                name="userInput"
+                autocomplete="off"
+                id="textArea"
+                required
+            />
+            <input type="submit" name="Submit" />
+        </form>
+    </section>
+</div>
 {% endblock %} {% block script %}
 <script src="/static/index.js"></script>
 {% endblock %}
