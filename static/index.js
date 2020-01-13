@@ -17,13 +17,13 @@ $(document).ready(() => {
   $("#word-form").hide();
 
   instrButton.on("click", () => {
-    $("#instructions").show();
+    $("#instructions").fadeIn();
   });
 
   playButton.on("click", () => {
     $("#instructions").hide();
-    $("#instructionsButton").hide();
-    $("#playButton").hide(); // <--- this is not working
+    $("#instructionsButton").fadeOut();
+    $("#playButton").fadeOut(); // <--- this is not working
     getWord();
   });
   // console.log("Is this working????");
@@ -43,11 +43,17 @@ function getWord() {
 
     $("#displayed-word").html(data.word);
 
-    $("#displayed-word").show();
+    $("#displayed-word").fadeIn();
 
     // timer starts after the word comes in from server
-    setTimeout(() => $("#displayed-word").hide(), 3000);
-    setTimeout(() => $("#word-form").show(), 3100);
+    setTimeout(function() {
+      $("#displayed-word").hide();
+    }, 3000);
+
+    setTimeout(function() {
+      $("#word-form").show();
+      $("#textArea").focus();
+    }, 3100);
   });
 }
 
