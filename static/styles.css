@@ -3,7 +3,32 @@
 }
 
 body {
-    font-family: 'Inconsolata', monospace;
+    font-family: "Inconsolata", monospace;
     height: 100%;
     margin: 0;
+}
+
+#displayed-word {
+    font-size: 60px;
+    font-weight: 600;
+    color: #e7e08b;
+}
+
+.btn {
+    color: #ffc4d1;
+}
+
+h3 {
+    color: #b1b7d1;
+    font-weight: 800;
+}
+
+.center-section {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    z-index: 15;
+    top: 50%;
+    left: 50%;
+    margin: -100px 0 0 -150px;
 }
