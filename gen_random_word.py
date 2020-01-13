@@ -12,6 +12,10 @@ level_9 = ["trigonometry", "biodiversity", "hypothalamus", "supernatural", "aero
 level_10 = ["schizophrenia", "mathematician", "mitochondrion", "parallelogram", "biotechnology", "metamorphosis", "hallucinogens", "hyperglycemia", "microorganism", "phytoplankton"] #13
 level_11 = ["photosynthesis", "chromatography", "cardiovascular", "nanotechnology", "simplification", "flabbergasting", "automatization", "overprotective", "philanthropist", "hallucinogenic"] #14
 level_12 = ["procrastination", "confidentiality", "crystallization", "experimentation", "hospitalization", "hemochromatosis", "decarboxylation", "neurobiological", "romanticization", "palaeontologist"] #15
+level_13 = ["acquaintanceship", "acknowledgements", "biotechnologists", "cinematographers", "chemotherapeutic", "compartmentalize"] #16
+level_14 = ["decriminalization", "hyperpigmentation", "neurofibromatosis", "diethyltryptamine", "immunosuppression", "heterogeneousness"] #17
+level_15 = ["gastroenterologist", "arteriolosclerosis", "laryngopharyngitis", "corynebacteriaceae", "parliamentarianism", "antiferromagnetism"] #18
+level_16 = ["per11fec77tion", "a11lzheimer88s", "apo3calyp790se", 'r33evolutio00n'] #nums and letters
 
 all_levels = [level_1, level_2, level_3,level_4,level_5,level_6,level_7,level_8,level_9, level_10,level_11,level_12]
 
