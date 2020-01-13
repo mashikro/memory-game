@@ -15,6 +15,7 @@ $(document).ready(() => {
   $("#instructions").hide();
   $("#displayed-word").hide();
   $("#word-form").hide();
+  $("#finish").hide();
 
   instrButton.on("click", () => {
     $("#instructions").fadeIn();
@@ -59,16 +60,20 @@ function getWord() {
 
 function endGame() {
   alert("End of Game!");
-  // $("#instructions").hide();
-  $("#instructionsButton").show();
-  $("#playButton").show();
-  $("#word-form").hide();
+  $("#finish").fadeIn();
+
+  setTimeout(function() {
+    $("#instructionsButton").show();
+    $("#playButton").show();
+    $("#word-form").hide();
+    $("#finish").fadeOut();
+  }, 1000);
   currentLevel = 0;
   wrongGuesses = 0;
 }
 
 const checkState = () => {
-  if (currentLevel == 12 || wrongGuesses == 3) {
+  if (currentLevel == 16 || wrongGuesses == 3) {
     console.log("does this work??");
     endGame();
   } else {
