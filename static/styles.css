@@ -18,7 +18,7 @@ body {
     color: #ffc4d1;
 }
 
-h3 {
+h2 {
     color: #b1b7d1;
     font-weight: 800;
 }
@@ -31,4 +31,9 @@ h3 {
     top: 50%;
     left: 50%;
     margin: -100px 0 0 -150px;
+}
+
+h1 {
+    color: #5dfdcb;
+    font-weight: 800;
 }
