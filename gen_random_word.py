@@ -17,7 +17,7 @@ level_14 = ["decriminalization", "hyperpigmentation", "neurofibromatosis", "diet
 level_15 = ["gastroenterologist", "arteriolosclerosis", "laryngopharyngitis", "corynebacteriaceae", "parliamentarianism", "antiferromagnetism"] #18
 level_16 = ["per11fec77tion", "a11lzheimer88s", "apo3calyp790se", 'r33evolutio00n'] #nums and letters
 
-all_levels = [level_1, level_2, level_3,level_4,level_5,level_6,level_7,level_8,level_9, level_10,level_11,level_12]
+all_levels = [level_1, level_2, level_3,level_4,level_5,level_6,level_7,level_8,level_9, level_10,level_11,level_12, level_13, level_14, level_15, level_16]
 
 def random_word(level):
     '''Picks a random word from a set and returns it'''
