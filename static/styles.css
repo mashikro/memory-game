@@ -37,3 +37,22 @@ h1 {
     color: #5dfdcb;
     font-weight: 800;
 }
+
+#instructions {
+    display: inline-block;
+    clear: left;
+    width: 500px;
+    text-align: left;
+    font-size: 14pt;
+    color: #d6d1b1;
+}
+
+input[type="text"] {
+    background-color: #94849b;
+    color: white;
+}
+
+input[type="submit"] {
+    background-color: #b1b7d1;
+    color: white;
+}
